@@ -38,7 +38,7 @@ class TaskController extends Controller
 
         foreach ($query as $field => $value) {
             if ($field == 'search') {
-                $data = $data->where('title', $value);
+                $data = $data->where('title', 'like', "%$value%");
             } else {
                 $data = $data->where($field, $value);
             }
