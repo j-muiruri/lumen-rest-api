@@ -1,26 +1,50 @@
-# Lumen PHP Framework
+## Lumen Task REST API
+Simple Lumen REST API that allows users to manage tasks.
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/lumen)](https://packagist.org/packages/laravel/lumen-framework)
+## Setup API locally
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+### Requirements
+- PHP veriosn 8.2 and above
+- MySQL Database
+- Composer Package Manager [Composer Download](https://getcomposer.org/download/)
 
-> **Note:** In the years since releasing Lumen, PHP has made a variety of wonderful performance improvements. For this reason, along with the availability of [Laravel Octane](https://laravel.com/docs/octane), we no longer recommend that you begin new projects with Lumen. Instead, we recommend always beginning new projects with [Laravel](https://laravel.com).
+### Clone the repo
+```
+git clone [https://github.com/j-muiruri/lumen-rest-api.git](https://github.com/j-muiruri/lumen-rest-api.git)
+```
+### Install the following PHP extensions
+```
+php8.2-cli php8.2-common php8.2-fpm php8.2-mysql php8.2-zip php8.2-gd php8.2-mbstring php8.2-curl php8.2-xml php8.2-bcmath openssl php8.2-json php8.2-tokenizer
+```
+### Install dependencies
+```
+composer install
+```
+### Create .env file by 
+copy `.env.example` file to `.env` or run :
+```
+php -r file_exists('.env') || copy('.env.example', '.env');
+```
+### Generate application key
+```
+php artisan key:generate
+```
+### Setup database settings 
+Change these values in `.env ` file by except `DB_CONNECTION` since we are using PostgreSQL
 
-## Official Documentation
+```
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=rest_api
+DB_USERNAME=username
+DB_PASSWORD=password
+```
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+## Run migrations and seeders
+```
+php artisan migrate
+```
 
-## Contributing
-
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Test the API
+The api can be tested using this Postman collection [Task REST API](https://api.postman.com/collections/18086763-2b71710a-851b-464a-b795-35cbabfcbeea?access_key=PMAT-01JB9HVV4CJGQA0TVY26QWC39V)
