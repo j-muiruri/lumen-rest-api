@@ -16,3 +16,10 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+
+$router->get('/task', ['uses' =>'TaskController@index']);
+$router->get('/task/{id}', ['uses' =>'TaskController@show']);
+$router->post('/task', ['uses' =>'TaskController@store']);
+$router->put('/task/{id}', ['uses' =>'TaskController@update']);
+$router->delete('/task/{id}', ['uses' =>'TaskController@destroy']);
