@@ -41,10 +41,18 @@ DB_USERNAME=username
 DB_PASSWORD=password
 ```
 
-## Run migrations and seeders
+## Run migrations
 ```
 php artisan migrate
+```
+## Run the Application
+```
+php -S localhost:8000 -t public
 ```
 
 ## Test the API
 The api can be tested using this Postman collection [Task REST API](https://api.postman.com/collections/18086763-2b71710a-851b-464a-b795-35cbabfcbeea?access_key=PMAT-01JB9HVV4CJGQA0TVY26QWC39V)
+
+# Filter and Search
+To filter the tasks by `status` or `due_date` add a parameter to the url eg. `http://127.0.0.1/task?status=completed`, the `due date` must in `YYYY-MM-DD` format  
+To search, append the `search` parameter same as filtering
